@@ -1,6 +1,6 @@
 from typing import List
 
-from server.repositories.user import UserRepository
+from server.repositories.users import UserRepository
 from server.models.user import User
 
 

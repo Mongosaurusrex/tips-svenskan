@@ -1,9 +1,11 @@
 from dependency_injector import containers, providers
 
 from server.database import Database
-from server.repositories.user import UserRepository
+from server.repositories.users import UserRepository
+from server.repositories.teams import TeamsRepository
 from server.services.users import UserService
 from server.services.auth import AuthService
+from server.services.teams import TeamsService
 
 
 class Container(containers.DeclarativeContainer):
@@ -12,6 +14,7 @@ class Container(containers.DeclarativeContainer):
             "server.endpoints.health",
             "server.endpoints.users",
             "server.endpoints.auth",
+            "server.endpoints.teams",
         ]
     )
 
@@ -23,6 +26,10 @@ class Container(containers.DeclarativeContainer):
     user_repository = providers.Factory(
         UserRepository, session_factory=db.provided.session
     )
+    teams_repository = providers.Factory(
+        TeamsRepository, session_factory=db.provided.session
+    )
 
     user_service = providers.Factory(UserService, user_repository=user_repository)
     auth_service = providers.Factory(AuthService, user_repository=user_repository)
+    teams_service = providers.Factory(TeamsService, teams_repository=teams_repository)

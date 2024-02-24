@@ -2,6 +2,7 @@ from contextlib import AbstractContextManager
 from typing import List, Callable
 
 from sqlalchemy.orm import Session
+from sqlalchemy.engine.row import Row
 
 from server.models.user import User
 from server.utils.errors import UserIdNotFoundError, UserNameNotFoundError
@@ -13,9 +14,9 @@ class UserRepository:
     ) -> None:
         self._session_factory = session_factory
 
-    def get_all(self) -> List[User]:
+    def get_all(self) -> List[Row]:
         with self._session_factory() as session:
-            return session.query(User).all()
+            return session.query(User).with_entities(User.id, User.user_name).all()
 
     def get_by_id(self, id: int) -> User:
         with self._session_factory() as session:

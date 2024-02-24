@@ -1,7 +1,8 @@
 from fastapi import APIRouter, Body, Depends
 from dependency_injector.wiring import inject, Provide
+from server.endpoints.middleware.JWTBearer import JWTBearer
 
-from server.utils.dataclasses.users import UserSignupSchema
+from server.utils.dataclasses.users import UserSignupSchema, UserLoginSchema
 from server.services.auth import AuthService
 from server.containers import Container
 
@@ -15,3 +16,12 @@ async def create_user(
     auth_service: AuthService = Depends(Provide[Container.auth_service]),
 ):
     return auth_service.sign_up(user)
+
+
+@router.post("/login")
+@inject
+async def login(
+    credentials: UserLoginSchema,
+    auth_service: AuthService = Depends(Provide[Container.auth_service]),
+):
+    return auth_service.sign_in(credentials)
