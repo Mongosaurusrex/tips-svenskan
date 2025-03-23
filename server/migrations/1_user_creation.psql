@@ -1,7 +1,0 @@
-CREATE TABLE users (
-	id UUID NOT NULL,
-	user_name VARCHAR NOT NULL,
-	hashed_password VARCHAR NOT NULL,
-	PRIMARY KEY (id),
-	UNIQUE (user_name)
-)

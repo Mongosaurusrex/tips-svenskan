@@ -1,5 +1,0 @@
-CREATE TABLE teams (
-	id UUID NOT NULL,
-	name VARCHAR NOT NULL,
-	PRIMARY KEY (id)
-)
