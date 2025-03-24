@@ -10,6 +10,7 @@ help:
 	@echo "  make downgrade              - Revert to the previous migration (or set REV=xyz)"
 	@echo "  make seed                   - Seed the database with sample leagues and teams"
 	@echo "  make run                    - Run FastAPI app locally (with reload)"
+	@echo "  make test                   - Run the test suite
 
 
 create-migration:
@@ -32,4 +33,8 @@ seed:
 	python -m db.seed_data 
 
 run:
-	uvicorn app.main:app --reload
+	uvicorn main:app --reload
+
+test: 
+	PYTHONPATH=. pytest
+	pytest
