@@ -2,6 +2,7 @@ include .env
 export
 
 .PHONY: help init-db migrate upgrade downgrade seed run up down
+export PYTHONPATH := .
 
 help:
 	@echo "Available commands:"
@@ -36,5 +37,4 @@ run:
 	uvicorn main:app --reload
 
 test: 
-	PYTHONPATH=. pytest
 	pytest

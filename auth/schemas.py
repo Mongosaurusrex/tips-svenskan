@@ -1,4 +1,5 @@
 from uuid import UUID
+
 from pydantic import BaseModel, EmailStr
 
 
@@ -8,7 +9,7 @@ class UserCreate(BaseModel):
 
 
 class UserOut(BaseModel):
-    id: UUID 
+    id: UUID
     email: EmailStr
 
     class Config:
@@ -17,4 +18,9 @@ class UserOut(BaseModel):
 
 class Token(BaseModel):
     access_token: str
+    refresh_token: str
     token_type: str = "bearer"
+
+
+class RefreshIn(BaseModel):
+    refresh_token: str
