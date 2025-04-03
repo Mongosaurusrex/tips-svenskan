@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
@@ -19,6 +19,10 @@ class Prediction(Base):
     user = relationship("User", back_populates="predictions")
     league = relationship("League", back_populates="predictions")
     entries = relationship("PredictionEntry", back_populates="prediction")
+
+    __table_args__ = (
+        UniqueConstraint('user_id', 'league_id', name='_user_league_uc'),
+    )
 
 
 class PredictionEntry(Base):
