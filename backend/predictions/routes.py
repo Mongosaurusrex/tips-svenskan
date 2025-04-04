@@ -6,10 +6,10 @@ from db.database import get_db
 from predictions import services 
 from predictions.schemas import PredictionCreate
 
-router = APIRouter(prefix="/precitions", tags=["predictions"])
+router = APIRouter(prefix="/predictions", tags=["predictions"])
 
 
-@router.post("/predictions", status_code=201)
+@router.post("/predict", status_code=201)
 def submit_prediction(
     payload: PredictionCreate,
     db: Session = Depends(get_db),

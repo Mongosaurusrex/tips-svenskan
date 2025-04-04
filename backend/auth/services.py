@@ -31,6 +31,6 @@ def login_user(db: Session, user_in: UserCreate) -> tuple[str, str]:
 def get_user_profile(db: Session, user_id: str) -> User:
     user = repositories.get_user_by_id(db=db, user_id=user_id)
     if not user:
-        raise HTTPException(status_code=400, detail="User not found")
+        raise HTTPException(status_code=404, detail="User not found")
 
     return user

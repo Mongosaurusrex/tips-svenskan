@@ -19,6 +19,9 @@ ifndef NAME
 	$(error Please provide a NAME, e.g., make migrate NAME=add_predictions_table)
 endif
 	alembic revision --autogenerate -m "$(NAME)"
+	 
+status:
+	alembic current && alembic heads && alembic history 
 
 upgrade:
 	alembic upgrade head
