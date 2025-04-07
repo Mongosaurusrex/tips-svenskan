@@ -1,7 +1,7 @@
+from datetime import date
 from uuid import UUID
 
 from pydantic import BaseModel
-from datetime import date
 
 
 class TeamOut(BaseModel):
@@ -11,9 +11,7 @@ class TeamOut(BaseModel):
     logo_url: str | None = None
 
     class Config:
-        orm_mode = True
-
-
+        from_attributes = True
 
 
 class LeagueOut(BaseModel):
@@ -23,4 +21,6 @@ class LeagueOut(BaseModel):
     lock_date: date
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+

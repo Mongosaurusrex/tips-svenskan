@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp, watch } from 'vue'
 import { createPinia } from 'pinia'
 import router from './router'
 import './assets/main.css'
@@ -7,7 +7,7 @@ import App from './App.vue'
 
 import { useAuthStore } from './stores/auth'
 
-const setup = ()=> {
+const setup = () => {
   const auth = useAuthStore()
   auth.setup()
 }
