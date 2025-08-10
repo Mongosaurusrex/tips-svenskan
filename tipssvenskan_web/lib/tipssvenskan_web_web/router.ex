@@ -18,6 +18,9 @@ defmodule TipssvenskanWebWeb.Router do
     pipe_through :browser
 
     live "/", LandingLive, :index
+    live "/contact", ContactLive, :index
+    live "/sign-in", SignInLive
+    live "/register", RegisterLive
   end
 
   # Other scopes may use custom stacks.
