@@ -1,4 +1,71 @@
-<div class="p-10">
-  <h1 class="text-3xl font-bold text-center">Tipssvenskan</h1>
-  <p class="text-center mt-4">Predict the league table. Compete with friends.</p>
-</div>
+<!-- HERO -->
+<section class="relative overflow-hidden">
+  <!-- soft gradient backdrop -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-base-200 to-base-100"></div>
+
+  <div class="max-w-6xl mx-auto px-6 py-20 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+      Tippa slutställningen. <span class="text-primary">Utmana vänner.</span>
+    </h1>
+    <p class="mt-4 text-base-content/70 max-w-2xl mx-auto">
+      Gör din tabell innan säsongsstart. Lås ditt tips, dela länken och jämför hur rätt du hade.
+    </p>
+
+    <div class="mt-8 flex items-center justify-center gap-3">
+      <button phx-click="start" class={["btn btn-primary", @cta_loading && "loading"]}>
+        Kom igång
+      </button>
+      <button phx-click="learn_more" class="btn btn-ghost">
+        Läs mer
+      </button>
+    </div>
+
+    <!-- simple showcase card -->
+    <div class="mt-12 grid place-items-center">
+      <div class="card bg-base-100 shadow-xl w-full max-w-xl">
+        <div class="card-body">
+          <h3 class="card-title">Allsvenskan 2025</h3>
+          <p class="text-base-content/70">Dra & släpp lagen i din ordning. Lås innan <span class="font-medium">1 sep</span>.</p>
+          <ul class="mt-4 space-y-2">
+            <li class="flex items-center gap-3"><div class="badge badge-primary">1</div><span>Malmö FF</span></li>
+            <li class="flex items-center gap-3"><div class="badge badge-secondary">2</div><span>Djurgården</span></li>
+            <li class="flex items-center gap-3"><div class="badge">3</div><span>Hammarby</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-base-100">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold text-center">Så funkar det</h2>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <div class="badge badge-primary">1</div>
+          <h3 class="card-title mt-2">Välj liga</h3>
+          <p>Starta med aktuell säsong i Allsvenskan (fler ligor kommer).</p>
+        </div>
+      </div>
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <div class="badge badge-secondary">2</div>
+          <h3 class="card-title mt-2">Bygg din tabell</h3>
+          <p>Dra & släpp lag tills allt känns rätt. Spara och lås.</p>
+        </div>
+      </div>
+
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <div class="badge">3</div>
+          <h3 class="card-title mt-2">Dela och jämför</h3>
+          <p>Få en delbar länk. Jämför tips med kompisarna under säsongen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
