@@ -17,7 +17,7 @@ defmodule TipssvenskanWebWeb.Router do
   scope "/", TipssvenskanWebWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", LandingLive, :index
   end
 
   # Other scopes may use custom stacks.
